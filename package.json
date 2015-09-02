@@ -16,6 +16,9 @@
     "util",
     "utility"
   ],
+  "dependencies": {
+    "unist-util-is": "^1.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wooorm/unist-util-find-after.git"

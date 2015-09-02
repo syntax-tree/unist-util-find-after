@@ -16,6 +16,9 @@
     "util",
     "utility"
   ],
+  "dependencies": {
+    "wooorm/unist-util-is": "^1.0.0"
+  },
   "repository": "wooorm/unist-util-find-after",
   "scripts": [
     "index.js"

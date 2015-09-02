@@ -80,14 +80,22 @@ describe('unist-util-find-after', function () {
         assert.throws(function () {
             findAfter({
                 'type': 'foo',
-                'children': []
+                'children': [{
+                    'type': 'bar'
+                }, {
+                    'type': 'baz'
+                }]
             }, 0, false);
         }, /Expected function, string, or node as test/);
 
         assert.throws(function () {
             findAfter({
                 'type': 'foo',
-                'children': []
+                'children': [{
+                    'type': 'bar'
+                }, {
+                    'type': 'baz'
+                }]
             }, 0, true);
         }, /Expected function, string, or node as test/);
     });
