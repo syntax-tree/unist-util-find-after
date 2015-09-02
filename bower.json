@@ -1,0 +1,40 @@
+{
+  "name": "unist-util-find-after",
+  "main": "unist-util-find-after.js",
+  "description": "Utility to find a node after another node",
+  "license": "MIT",
+  "keywords": [
+    "unist",
+    "mdast",
+    "markdown",
+    "retext",
+    "natural",
+    "language",
+    "node",
+    "find",
+    "after",
+    "util",
+    "utility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/unist-util-find-after.git"
+  },
+  "authors": [
+    "Titus Wormer <tituswormer@gmail.com>"
+  ],
+  "ignore": [
+    ".*",
+    "*.log",
+    "*.md",
+    "build/",
+    "components/",
+    "coverage/",
+    "node_modules/",
+    "build.js",
+    "index.js",
+    "test.js",
+    "component.json",
+    "package.json"
+  ]
+}
