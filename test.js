@@ -2,10 +2,10 @@
 
 var assert = require('assert');
 var test = require('tape');
-var mdast = require('mdast');
+var remark = require('remark');
 var findAfter = require('./');
 
-var tree = mdast().parse('Some *emphasis*, **strongness**, and `code`.');
+var tree = remark().parse('Some *emphasis*, **strongness**, and `code`.');
 var paragraph = tree.children[0];
 var children = paragraph.children;
 
@@ -61,7 +61,7 @@ test('unist-util-find-after', function (t) {
             children: [{type: 'bar'}, {type: 'baz'}]
           }, 0, false);
         },
-        /Expected function, string, or node as test/
+        /Expected function, string, or object as test/
       );
 
       assert.throws(
@@ -71,7 +71,7 @@ test('unist-util-find-after', function (t) {
             children: [{type: 'bar'}, {type: 'baz'}]
           }, 0, true);
         },
-        /Expected function, string, or node as test/
+        /Expected function, string, or object as test/
       );
     },
     'should fail for invalid `test`'

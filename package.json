@@ -5,51 +5,39 @@
   "license": "MIT",
   "keywords": [
     "unist",
-    "mdast",
-    "markdown",
-    "retext",
-    "natural",
-    "language",
     "node",
     "find",
     "after",
     "util",
     "utility"
   ],
-  "dependencies": {
-    "unist-util-is": "^1.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/unist-util-find-after.git"
-  },
-  "author": {
-    "name": "Titus Wormer",
-    "email": "tituswormer@gmail.com"
-  },
-  "files": [
-    "index.js",
-    "LICENSE"
+  "repository": "https://github.com/wooorm/unist-util-find-after",
+  "bugs": "https://github.com/wooorm/unist-util-find-after/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "unist-util-is": "^2.0.0"
+  },
   "devDependencies": {
-    "browserify": "^11.0.0",
+    "browserify": "^13.1.1",
     "esmangle": "^1.0.0",
-    "mdast": "^1.0.0",
-    "mdast-comment-config": "^1.0.0",
-    "mdast-github": "^1.0.0",
-    "mdast-lint": "^1.0.0",
-    "mdast-slug": "^1.0.0",
-    "mdast-validate-links": "^1.0.0",
+    "remark": "^6.0.0",
+    "remark-cli": "^2.0.0",
+    "remark-preset-wooorm": "^1.0.0",
     "nyc": "^9.0.1",
     "tape": "^4.6.2",
     "xo": "^0.17.1"
   },
   "scripts": {
-    "lint": "xo",
-    "bundle": "browserify index.js --no-builtins -s unistUtilFindAfter > unist-util-find-after.js",
-    "postbundle": "esmangle unist-util-find-after.js > unist-util-find-after.min.js",
-    "build-md": "mdast . --quiet",
-    "build": "npm run bundle && npm run build-md",
+    "build-md": "remark . -foq",
+    "build-bundle": "browserify index.js --no-builtins -s unistUtilFindAfter > unist-util-find-after.js",
+    "build-mangle": "esmangle unist-util-find-after.js > unist-util-find-after.min.js",
+    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test.js",
@@ -66,5 +54,8 @@
     "ignore": [
       "unist-util-find-after.js"
     ]
+  },
+  "remarkConfig": {
+    "presets": "wooorm"
   }
 }

@@ -58,7 +58,7 @@ inlineCode: 'code'
 
 ## API
 
-### findAfter(parent, index|node\[, test\])
+### findAfter(parent, index|node\[, test])
 
 Find the first child after `index` (or `node`), that passes `test` (when
 given).
