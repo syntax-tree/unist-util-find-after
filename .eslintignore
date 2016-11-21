@@ -1,6 +1,0 @@
-build/
-components/
-coverage/
-build.js
-unist-util-find-after.js
-unist-util-find-after.min.js
