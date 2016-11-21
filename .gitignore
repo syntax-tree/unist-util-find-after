@@ -1,8 +1,7 @@
 .DS_Store
 *.log
-bower_components/
-build/
-components/
+.nyc_output/
 coverage/
 node_modules/
-build.js
+unist-util-find-after.js
+unist-util-find-after.min.js
