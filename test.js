@@ -5,7 +5,7 @@ var test = require('tape');
 var remark = require('remark');
 var findAfter = require('./');
 
-var tree = remark().parse('Some *emphasis*, **strongness**, and `code`.');
+var tree = remark().parse('Some _emphasis_, **importance**, and `code`.');
 var paragraph = tree.children[0];
 var children = paragraph.children;
 
