@@ -38,11 +38,11 @@ Find the first child after `index` (or `node`) in `parent`, that passes `test`
 
 ###### Parameters
 
-*   `parent` ([`Node`][node]) — Context node;
-*   `node` ([`Node`][node]) — Node in `parent`;
-*   `index` (`number`, optional) — Position of a `node` in `parent`;
+*   `parent` ([`Node`][node]) — Context node
+*   `node` ([`Node`][node]) — Node in `parent`
+*   `index` (`number`, optional) — Position of a `node` in `parent`
 *   `test` (`Function`, `string`, or `Node`, optional)
-    — See [`unist-util-is`][is].
+    — See [`unist-util-is`][is]
 
 ###### Returns
 
