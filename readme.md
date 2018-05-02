@@ -13,13 +13,13 @@ npm install unist-util-find-after
 ## Usage
 
 ```js
-var remark = require('remark');
-var findAfter = require('unist-util-find-after');
+var remark = require('remark')
+var findAfter = require('unist-util-find-after')
 
-var tree = remark().parse('Some _emphasis_, **importance**, and `code`.');
-var paragraph = tree.children[0];
+var tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
+var paragraph = tree.children[0]
 
-console.log(findAfter(paragraph, 1, 'strong'));
+console.log(findAfter(paragraph, 1, 'strong'))
 ```
 
 Yields:
