@@ -35,7 +35,7 @@
     "xo": "^0.20.0"
   },
   "scripts": {
-    "format": "remark . -qfo && prettier --write '**/*.js' && xo --fix",
+    "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
     "build-bundle": "browserify index.js --no-builtins -s unistUtilFindAfter > unist-util-find-after.js",
     "build-mangle": "esmangle unist-util-find-after.js > unist-util-find-after.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
