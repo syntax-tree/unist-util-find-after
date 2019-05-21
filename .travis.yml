@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: S/mczXnJr7/npCyMZmv0TAN5R8m8II/EcOg8OVpsgH80e6+Wnz+A9X7k+TeXmcLcQo9GqjPr36fDwvrmbVHuzjiPFYYmXIrKPQ6NyC3Wh4AnJZU7VSLL2SFEEDSRmbENsmJnUsNEYEWevVQyS323mB+sdeVj2sD+AVIKYsJ27VM5kXfnNAsBrQLNBFIQb9YkrHJTSTgpAB3+KqfzArB3JwKIyTBM49xtSEaF0ep9V5rtKQqxph/j9XaRsQEf+2a9n3nIELPFMJKrecvsfD1IL67pH03SIgBvzleplxAodpWCWdOas+9C2vJ3YhEQsCNsOiJDdJtfugkASneCYK+SIHMKrIeSMDaO/zL/0zvTmBmgcTtpsVbFgK7bwSjxECMS4iVIy5LtxPdis0f4Cvz1DXfDvsgZrxdJ/fNWeAIlRJGSgERmDT48XsbOX4ORWZReaCKRe43VpVOPcIV20CkKz22ZdLggU+RQaf2ngW2cGc0hY/EetUJM4jLOfadWz/ILcWQ9+43sT4pob7VLz13ABXn5HmmUr7YeQ60wIR49Ss5QeJPLOE1nSIM9n3UP1TcAOGk8DnqxuAZ+OMA/AF5ZxSbfg6Y2pW8KyycAFTyeDgKxM1c2SsZw7t9bBXB59qumKODY0Fybtnwh4clP6anyXD59Owba2xIS0SLYjLcKviU=
+    secure: VNsSzrFdFa6meg9pLtWg9Y8Z+1EE+lDPkoLafqSrV60lnRLWUY8Hz/Mfpk1ugvN6K6i3bsyr1EmWLndPtmJhT26hDxVyiWHE14CVtXg7DyBmIfXPyXkMP5H/ErkWm0V3H2w8mhrolC6Kmn/peBsKCX8aqxSvHBeZ4p/wvU2BUM7HN+rofdPWTUg+FMgQ/+ynUyQuAiVfKtuDTiWjjZNo2zoJLdcZ9t0OkzR3lkxf2z/7o6VcoEav7BHUovyTYDlEGpkgVJTTlZ2YgFSq9wue8KpbPerRHSexU8BVKvDx+DhT7UiIghgaYY6OjKgdACJHM5TPWQlriK1KhHK5aG/FptHOD3BNJWeXrAP7FNUdmcHVHjQr71wkXDJNYfBuoh8cjJzj4i9mKL5+ZkaipSoFx03hQKEOblBMDnufCSHYe5em3cDIZe3exqUdN2xuejc6onkUBE4DUfH3tNI+GZl1zfFRPaEcjHesbDO+YpPk8uW4xJ9O+P9oU1tDup2LqRmK67xt4rVKae7hQZIgpUaUC3IufaozoUDI2oYVASM4+KfKN7IyY/Uy2GeYKkf/yyXgOGxdafBzvxIJxanIMLw4uCiNiBluBdUypwMUXG4O7nSNgJ9yS3IpfRT2/PU4xu7GZ6Aevv3l5phLqGCjQTVfl2rT/7CJLKEv9hEg+ISWxH0=
   file:
-    - "unist-util-find-after.js"
-    - "unist-util-find-after.min.js"
+    - 'unist-util-find-after.js'
+    - 'unist-util-find-after.min.js'
   on:
     tags: true
