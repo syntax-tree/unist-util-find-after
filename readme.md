@@ -1,4 +1,9 @@
-# unist-util-find-after [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# unist-util-find-after
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
 
 [**Unist**][unist] utility to find a node after another node.
 
@@ -75,13 +80,21 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/syntax-tree/unist-util-find-after.svg
+[build-badge]: https://img.shields.io/travis/syntax-tree/unist-util-find-after.svg
 
-[travis]: https://travis-ci.org/syntax-tree/unist-util-find-after
+[build]: https://travis-ci.org/syntax-tree/unist-util-find-after
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/syntax-tree/unist-util-find-after.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/unist-util-find-after.svg
 
-[codecov]: https://codecov.io/github/syntax-tree/unist-util-find-after
+[coverage]: https://codecov.io/github/syntax-tree/unist-util-find-after
+
+[downloads-badge]: https://img.shields.io/npm/dm/unist-util-find-after.svg
+
+[downloads]: https://www.npmjs.com/package/unist-util-find-after
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/unist-util-find-after.svg
+
+[size]: https://bundlephobia.com/result?p=unist-util-find-after
 
 [npm]: https://docs.npmjs.com/cli/install
 
