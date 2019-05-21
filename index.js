@@ -4,8 +4,6 @@ var is = require('unist-util-is')
 
 module.exports = findAfter
 
-/* Find a node after `index` in `parent` which passes
- * `test`. */
 function findAfter(parent, index, test) {
   var children
   var child
