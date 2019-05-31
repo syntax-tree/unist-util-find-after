@@ -1,10 +1,11 @@
 'use strict'
 
-var is = require('unist-util-is')
+var convert = require('unist-util-is/convert')
 
 module.exports = findAfter
 
 function findAfter(parent, index, test) {
+  var is = convert(test)
   var children
   var child
   var length
@@ -27,7 +28,7 @@ function findAfter(parent, index, test) {
   while (++index < length) {
     child = children[index]
 
-    if (is(test, child, index, parent)) {
+    if (is(child, index, parent)) {
       return child
     }
   }
