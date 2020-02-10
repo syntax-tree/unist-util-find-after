@@ -1,15 +1,16 @@
 {
   "name": "unist-util-find-after",
   "version": "2.0.4",
-  "description": "Utility to find a node after another node",
+  "description": "unist utility to find a node after another node",
   "license": "MIT",
   "keywords": [
     "unist",
+    "unist-util",
+    "util",
+    "utility",
     "node",
     "find",
-    "after",
-    "util",
-    "utility"
+    "after"
   ],
   "repository": "syntax-tree/unist-util-find-after",
   "bugs": "https://github.com/syntax-tree/unist-util-find-after/issues",
