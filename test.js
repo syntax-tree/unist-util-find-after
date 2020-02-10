@@ -43,10 +43,7 @@ test('unist-util-find-after', function(t) {
   t.doesNotThrow(function() {
     assert.throws(function() {
       findAfter(
-        {
-          type: 'foo',
-          children: [{type: 'bar'}, {type: 'baz'}]
-        },
+        {type: 'foo', children: [{type: 'bar'}, {type: 'baz'}]},
         0,
         false
       )
@@ -54,10 +51,7 @@ test('unist-util-find-after', function(t) {
 
     assert.throws(function() {
       findAfter(
-        {
-          type: 'foo',
-          children: [{type: 'bar'}, {type: 'baz'}]
-        },
+        {type: 'foo', children: [{type: 'bar'}, {type: 'baz'}]},
         0,
         true
       )
