@@ -6,30 +6,26 @@ module.exports = findAfter
 
 function findAfter(parent, index, test) {
   var is = convert(test)
-  var children
-  var child
-  var length
 
   if (!parent || !parent.type || !parent.children) {
     throw new Error('Expected parent node')
   }
 
-  children = parent.children
-  length = children.length
+  if (typeof index === 'number') {
+    if (index < 0 || index === Infinity) {
+      throw new Error('Expected positive finite number as index')
+    }
+  } else {
+    index = parent.children.indexOf(index)
 
-  if (index && index.type) {
-    index = children.indexOf(index)
+    if (index < 0) {
+      throw new Error('Expected child node or index')
+    }
   }
 
-  if (isNaN(index) || index < 0 || index === Infinity) {
-    throw new Error('Expected positive finite index or child node')
-  }
-
-  while (++index < length) {
-    child = children[index]
-
-    if (is(child, index, parent)) {
-      return child
+  while (++index < parent.children.length) {
+    if (is(parent.children[index], index, parent)) {
+      return parent.children[index]
     }
   }
 
