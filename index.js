@@ -1,10 +1,6 @@
-'use strict'
+import {convert} from 'unist-util-is'
 
-var convert = require('unist-util-is/convert')
-
-module.exports = findAfter
-
-function findAfter(parent, index, test) {
+export function findAfter(parent, index, test) {
   var is = convert(test)
 
   if (!parent || !parent.type || !parent.children) {
@@ -12,7 +8,7 @@ function findAfter(parent, index, test) {
   }
 
   if (typeof index === 'number') {
-    if (index < 0 || index === Infinity) {
+    if (index < 0 || index === Number.POSITIVE_INFINITY) {
       throw new Error('Expected positive finite number as index')
     }
   } else {

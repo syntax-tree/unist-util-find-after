@@ -1,6 +1,2 @@
-.nyc_output/
 coverage/
-unist-util-find-after.js
-unist-util-find-after.min.js
-*.json
 *.md
