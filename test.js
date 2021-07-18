@@ -1,5 +1,6 @@
 /**
  * @typedef {import('unist').Node} Node
+ * @typedef {import('unist').Parent} Parent
  */
 
 import test from 'tape'
@@ -7,13 +8,15 @@ import remark from 'remark'
 import {findAfter} from './index.js'
 
 var tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
+/** @type {Parent} */
+// @ts-expect-error fine.
 var paragraph = tree.children[0]
 var children = paragraph.children
 
 test('unist-util-find-after', function (t) {
   t.throws(
     function () {
-      // @ts-ignore runtime.
+      // @ts-expect-error runtime.
       findAfter()
     },
     /Expected parent node/,
@@ -22,7 +25,7 @@ test('unist-util-find-after', function (t) {
 
   t.throws(
     function () {
-      // @ts-ignore runtime.
+      // @ts-expect-error runtime.
       findAfter({type: 'foo'})
     },
     /Expected parent node/,
@@ -31,7 +34,7 @@ test('unist-util-find-after', function (t) {
 
   t.throws(
     function () {
-      // @ts-ignore runtime.
+      // @ts-expect-error runtime.
       findAfter({type: 'foo', children: []})
     },
     /Expected child node or index/,
@@ -40,7 +43,6 @@ test('unist-util-find-after', function (t) {
 
   t.throws(
     function () {
-      // @ts-ignore runtime.
       findAfter({type: 'foo', children: []}, -1)
     },
     /Expected positive finite number as index/,
@@ -49,7 +51,6 @@ test('unist-util-find-after', function (t) {
 
   t.throws(
     function () {
-      // @ts-ignore runtime.
       findAfter({type: 'foo', children: []}, {type: 'bar'})
     },
     /Expected child node or index/,
@@ -61,7 +62,7 @@ test('unist-util-find-after', function (t) {
       findAfter(
         {type: 'foo', children: [{type: 'bar'}, {type: 'baz'}]},
         0,
-        // @ts-ignore runtime.
+        // @ts-expect-error runtime.
         false
       )
     },
@@ -74,7 +75,7 @@ test('unist-util-find-after', function (t) {
       findAfter(
         {type: 'foo', children: [{type: 'bar'}, {type: 'baz'}]},
         0,
-        // @ts-ignore runtime.
+        // @ts-expect-error runtime.
         true
       )
     },
