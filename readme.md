@@ -27,7 +27,7 @@ npm install unist-util-find-after
 import {u} from 'unist-builder'
 import {findAfter} from 'unist-util-find-after'
 
-var tree = u('tree', [
+const tree = u('tree', [
   u('leaf', 'leaf 1'),
   u('node', [u('leaf', 'leaf 2'), u('leaf', 'leaf 3')]),
   u('leaf', 'leaf 4'),

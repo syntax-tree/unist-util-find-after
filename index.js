@@ -9,7 +9,7 @@
 
 import {convert} from 'unist-util-is'
 
-export var findAfter =
+export const findAfter =
   /**
    * @type {(
    *  (<T extends Node>(node: Parent, index: Node|number, test: T['type']|Partial<T>|import('unist-util-is').TestFunctionPredicate<T>|Array.<T['type']|Partial<T>|import('unist-util-is').TestFunctionPredicate<T>>) => T|null) &
@@ -24,7 +24,7 @@ export var findAfter =
      * @returns {Node|null}
      */
     function (parent, index, test) {
-      var is = convert(test)
+      const is = convert(test)
 
       if (!parent || !parent.type || !parent.children) {
         throw new Error('Expected parent node')

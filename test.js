@@ -7,15 +7,15 @@ import test from 'tape'
 import remark from 'remark'
 import {findAfter} from './index.js'
 
-var tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
+const tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
 /** @type {Parent} */
 // @ts-expect-error fine.
-var paragraph = tree.children[0]
-var children = paragraph.children
+const paragraph = tree.children[0]
+const children = paragraph.children
 
-test('unist-util-find-after', function (t) {
+test('unist-util-find-after', (t) => {
   t.throws(
-    function () {
+    () => {
       // @ts-expect-error runtime.
       findAfter()
     },
@@ -24,7 +24,7 @@ test('unist-util-find-after', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       // @ts-expect-error runtime.
       findAfter({type: 'foo'})
     },
@@ -33,7 +33,7 @@ test('unist-util-find-after', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       // @ts-expect-error runtime.
       findAfter({type: 'foo', children: []})
     },
@@ -42,7 +42,7 @@ test('unist-util-find-after', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       findAfter({type: 'foo', children: []}, -1)
     },
     /Expected positive finite number as index/,
@@ -50,7 +50,7 @@ test('unist-util-find-after', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       findAfter({type: 'foo', children: []}, {type: 'bar'})
     },
     /Expected child node or index/,
@@ -58,7 +58,7 @@ test('unist-util-find-after', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       findAfter(
         {type: 'foo', children: [{type: 'bar'}, {type: 'baz'}]},
         0,
@@ -71,7 +71,7 @@ test('unist-util-find-after', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       findAfter(
         {type: 'foo', children: [{type: 'bar'}, {type: 'baz'}]},
         0,
