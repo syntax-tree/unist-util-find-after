@@ -12,7 +12,7 @@ import {convert} from 'unist-util-is'
 export const findAfter =
   /**
    * @type {(
-   *  (<T extends Node>(node: Parent, index: Node|number, test: T['type']|Partial<T>|import('unist-util-is').TestFunctionPredicate<T>|Array.<T['type']|Partial<T>|import('unist-util-is').TestFunctionPredicate<T>>) => T|null) &
+   *  (<T extends Node>(node: Parent, index: Node|number, test: T['type']|Partial<T>|import('unist-util-is').TestFunctionPredicate<T>|Array<T['type']|Partial<T>|import('unist-util-is').TestFunctionPredicate<T>>) => T|null) &
    *  ((node: Parent, index: Node|number, test?: null|undefined|Type|Props|TestFunctionAnything|Array<Type|Props|TestFunctionAnything>) => Node|null)
    * )}
    */

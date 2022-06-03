@@ -8,17 +8,54 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**unist**][unist] utility to find a node after another node.
+[unist][] utility to find a node after another node.
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`findAfter(parent, node|index[, test])`](#findafterparent-nodeindex-test)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This is a tiny utility that you can use to find a node after another node or
+after an index in a parent.
+
+## When should I use this?
+
+This is super tiny.
+You can of course do it yourself.
+But this helps when integrating with the rest of unified and unist.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
 
 ```sh
 npm install unist-util-find-after
+```
+
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import {findAfter} from "https://esm.sh/unist-util-find-after@4"
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import {findAfter} from "https://esm.sh/unist-util-find-after@4?bundle"
+</script>
 ```
 
 ## Use
@@ -29,75 +66,80 @@ import {findAfter} from 'unist-util-find-after'
 
 const tree = u('tree', [
   u('leaf', 'leaf 1'),
-  u('node', [u('leaf', 'leaf 2'), u('leaf', 'leaf 3')]),
+  u('parent', [u('leaf', 'leaf 2'), u('leaf', 'leaf 3')]),
   u('leaf', 'leaf 4'),
-  u('node', [u('leaf', 'leaf 5')]),
+  u('parent', [u('leaf', 'leaf 5')]),
   u('leaf', 'leaf 6'),
-  u('void'),
+  u('empty'),
   u('leaf', 'leaf 7')
 ])
 
-console.log(findAfter(tree, 1, 'node'))
+console.log(findAfter(tree, 1, 'parent'))
 ```
 
 Yields:
 
 ```js
-{type: 'node', children: [{ type: 'leaf', value: 'leaf 5'}]}
+{type: 'parent', children: [{ type: 'leaf', value: 'leaf 5'}]}
 ```
 
 ## API
 
-This package exports the following identifiers: `findAfter`.
+This package exports the identifier `findAfter`.
 There is no default export.
 
 ### `findAfter(parent, node|index[, test])`
 
-Find the first [child][] after `index` (or `node`) in `parent`, that passes
-`test`.
-
-###### Parameters
-
-*   `parent` ([`Node`][node]) — [Parent][] node
-*   `node` ([`Node`][node]) — [Child][] of `parent`
-*   `index` (`number`, optional) — [Index][] in `parent`
-*   `test` (`Function`, `string`, `Object`, `Array`, optional)
-    — See [`unist-util-is`][is]
+Find the first node in `parent` ([`Parent`][parent]) after another `node`
+([`Node`][node]) or after an index, that passes `test` (`Test` from
+[`unist-util-is`][test]).
 
 ###### Returns
 
-[`Node?`][node] — [Child][] of `parent` passing `test`.
+Child of `parent` that passes `test`, if found ([`Node?`][node]).
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports no additional types (types for the test are in `unist-util-is`).
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Related
 
 *   [`unist-util-visit`](https://github.com/syntax-tree/unist-util-visit)
-    — Recursively walk over nodes
+    — walk the tree
 *   [`unist-util-visit-parents`](https://github.com/syntax-tree/unist-util-visit-parents)
-    — Like `visit`, but with a stack of parents
+    — walk the tree with a stack of parents
 *   [`unist-util-filter`](https://github.com/syntax-tree/unist-util-filter)
-    — Create a new tree with all nodes that pass a test
+    — create a new tree with all nodes that pass a test
 *   [`unist-util-map`](https://github.com/syntax-tree/unist-util-map)
-    — Create a new tree with all nodes mapped by a given function
+    — create a new tree with all nodes mapped by a given function
 *   [`unist-util-flatmap`](https://gitlab.com/staltz/unist-util-flatmap)
-    — Create a new tree by mapping (to an array) with the provided function and
+    — create a new tree by mapping (to an array) with the provided function and
     then flattening
 *   [`unist-util-find-before`](https://github.com/syntax-tree/unist-util-find-before)
-    — Find a node before another node
+    — find a node before another node
 *   [`unist-util-find-all-after`](https://github.com/syntax-tree/unist-util-find-all-after)
-    — Find all nodes after another node
+    — find all nodes after another node
 *   [`unist-util-find-all-before`](https://github.com/syntax-tree/unist-util-find-all-before)
-    — Find all nodes before another node
+    — find all nodes before another node
 *   [`unist-util-find-all-between`](https://github.com/mrzmmr/unist-util-find-all-between)
-    — Find all nodes between two nodes
+    — find all nodes between two nodes
 *   [`unist-util-remove`](https://github.com/syntax-tree/unist-util-remove)
-    — Remove nodes from a tree that pass a test
+    — remove nodes from a tree that pass a test
 *   [`unist-util-select`](https://github.com/syntax-tree/unist-util-select)
-    — Select nodes with CSS-like selectors
+    — select nodes with CSS-like selectors
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`syntax-tree/.github`][health] for
+ways to get started.
 See [`support.md`][support] for ways to get help.
 
 This project has a [Code of Conduct][coc].
@@ -138,9 +180,23 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[esmsh]: https://esm.sh
+
+[typescript]: https://www.typescriptlang.org
+
 [license]: license
 
 [author]: https://wooorm.com
+
+[health]: https://github.com/syntax-tree/.github
+
+[contributing]: https://github.com/syntax-tree/.github/blob/main/contributing.md
+
+[support]: https://github.com/syntax-tree/.github/blob/main/support.md
+
+[coc]: https://github.com/syntax-tree/.github/blob/main/code-of-conduct.md
 
 [unist]: https://github.com/syntax-tree/unist
 
@@ -148,14 +204,4 @@ abide by its terms.
 
 [parent]: https://github.com/syntax-tree/unist#parent-1
 
-[child]: https://github.com/syntax-tree/unist#child
-
-[index]: https://github.com/syntax-tree/unist#index
-
-[is]: https://github.com/syntax-tree/unist-util-is
-
-[contributing]: https://github.com/syntax-tree/.github/blob/HEAD/contributing.md
-
-[support]: https://github.com/syntax-tree/.github/blob/HEAD/support.md
-
-[coc]: https://github.com/syntax-tree/.github/blob/HEAD/code-of-conduct.md
+[test]: https://github.com/syntax-tree/unist-util-is#test
