@@ -4,13 +4,11 @@
  */
 
 import test from 'tape'
-import {remark} from 'remark'
+import {fromMarkdown} from 'mdast-util-from-markdown'
 import {findAfter} from './index.js'
 
-const tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
-/** @type {Parent} */
-// @ts-expect-error fine.
-const paragraph = tree.children[0]
+const tree = fromMarkdown('Some _emphasis_, **importance**, and `code`.')
+const paragraph = /** @type {Parent} */ (tree.children[0])
 const children = paragraph.children
 
 test('unist-util-find-after', (t) => {
