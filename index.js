@@ -9,6 +9,19 @@
 
 import {convert} from 'unist-util-is'
 
+/**
+ * Find the first node in `parent` after another `node` or after an index,
+ * that passes `test`.
+
+ * @param parent
+ *   Parent node.
+ * @param index
+ *   Child of `parent`, or it’s index.
+ * @param [test]
+ *   `unist-util-is`-compatible test.
+ * @returns
+ *    Child of `parent` that passes `test`, if found.
+ */
 export const findAfter =
   /**
    * @type {(
@@ -18,9 +31,9 @@ export const findAfter =
    */
   (
     /**
-     * @param {Parent} parent Parent node
-     * @param {Node|number} index Child of `parent`, or it’s index
-     * @param {null|undefined|Type|Props|TestFunctionAnything|Array<Type|Props|TestFunctionAnything>} [test] is-compatible test (such as a type)
+     * @param {Parent} parent
+     * @param {Node|number} index
+     * @param {null|undefined|Type|Props|TestFunctionAnything|Array<Type|Props|TestFunctionAnything>} [test]
      * @returns {Node|null}
      */
     function (parent, index, test) {
