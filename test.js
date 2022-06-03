@@ -4,7 +4,7 @@
  */
 
 import test from 'tape'
-import remark from 'remark'
+import {remark} from 'remark'
 import {findAfter} from './index.js'
 
 const tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
