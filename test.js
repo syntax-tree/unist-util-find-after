@@ -91,7 +91,7 @@ test('findAfter', async function (t) {
   await t.test(
     'should return the following node when without `test` (#1)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, 7), null)
+      assert.strictEqual(findAfter(paragraph, 7), undefined)
     }
   )
 
@@ -122,21 +122,24 @@ test('findAfter', async function (t) {
   await t.test(
     'should return `node` when given a `node` and existing (#4)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, children[0], children[0]), null)
+      assert.strictEqual(
+        findAfter(paragraph, children[0], children[0]),
+        undefined
+      )
     }
   )
 
   await t.test(
     'should return `node` when given a `node` and existing (#5)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, 0, children[0]), null)
+      assert.strictEqual(findAfter(paragraph, 0, children[0]), undefined)
     }
   )
 
   await t.test(
     'should return `node` when given a `node` and existing (#6)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, 1, children[1]), null)
+      assert.strictEqual(findAfter(paragraph, 1, children[1]), undefined)
     }
   )
 
@@ -150,7 +153,7 @@ test('findAfter', async function (t) {
   await t.test(
     'should return a child when given a `type` and existing (#2)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, 3, 'strong'), null)
+      assert.strictEqual(findAfter(paragraph, 3, 'strong'), undefined)
     }
   )
 
@@ -167,7 +170,7 @@ test('findAfter', async function (t) {
   await t.test(
     'should return a child when given a `type` and existing (#4)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, children[3], 'strong'), null)
+      assert.strictEqual(findAfter(paragraph, children[3], 'strong'), undefined)
     }
   )
 
@@ -181,7 +184,7 @@ test('findAfter', async function (t) {
   await t.test(
     'should return a child when given a `test` and existing (#2)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, 5, check), null)
+      assert.strictEqual(findAfter(paragraph, 5, check), undefined)
     }
   )
 
@@ -195,7 +198,7 @@ test('findAfter', async function (t) {
   await t.test(
     'should return a child when given a `test` and existing (#4)',
     async function () {
-      assert.strictEqual(findAfter(paragraph, children[6], check), null)
+      assert.strictEqual(findAfter(paragraph, children[6], check), undefined)
     }
   )
 })
