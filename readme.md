@@ -47,14 +47,14 @@ npm install unist-util-find-after
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {findAfter} from 'https://esm.sh/unist-util-find-after@4'
+import {findAfter} from 'https://esm.sh/unist-util-find-after@5'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {findAfter} from 'https://esm.sh/unist-util-find-after@4?bundle'
+  import {findAfter} from 'https://esm.sh/unist-util-find-after@5?bundle'
 </script>
 ```
 
