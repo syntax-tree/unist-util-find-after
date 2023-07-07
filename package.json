@@ -31,8 +31,8 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/unist": "^2.0.0",
-    "unist-util-is": "^5.0.0"
+    "@types/unist": "^3.0.0",
+    "unist-util-is": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
